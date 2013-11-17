@@ -6,7 +6,7 @@
 		<style>
 
            /* SUPER IMPORTANTE PONER ANCHO Y ALTO A LA CAJA */
-		   #mapa{
+		   #mimapa{
 		   	  height: 600px;
 		   	  width: 600px;
 		   }
@@ -15,15 +15,39 @@
 
 		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="javascript/jquery.gomap-1.3.2.min"></script>
+		<script src="javascript/jquery.gomap-1.3.2.min.js"></script>
 		<script>
-
+		$(function(){
+			navigator.geolocation.getCurrentPosition(function(posicion){
+				var latitud = posicion.coords.latitude;
+				var longitud = posicion.coords.longitude;
+				
+				$("#mimapa").goMap({
+					maptype: "ROADMAP",
+					zoom:15,
+					/*markers:[{
+						latitude:latitud,
+						longitude:longitud
+					}]*/
+					markers:[{
+						address:"Montevideo Distrito Federal", 
+						icon:"imagenes/apartamento.png",
+						draggable:true,
+						title:"estes es un departamento",
+						html:"<h1> Yo no vivo aqui</h1>"	
+					}]
+				});				
+			});
+		});
+			
 		</script>
 
 	</head>
 	<body>
 
-		<div id="mimapa"></div>
+		<div id="mimapa">
+			
+		</div>
 		
 	</body>
 </html>

@@ -15,7 +15,26 @@
 		<script src="../javascript/jquery-1.10.2.min.js"></script>
 		<script src="../javascript/jquery.gomap-1.3.2.min.js"></script>
 
-		<script>		
+		<script>	
+			$(function(){
+				$("button").click(function(){
+					navigator.geolocation.getCurrentPosition(function(posicion){
+						$("#mapa").goMap({
+						zoom:15,
+						maptype: "ROADMAP",						
+						markers:[{
+							address:"legaria distrito federal",
+							icon:"../imagenes/apartamento.png",
+							title:"Lugar",
+							html:"<h2>casa de juan</h2>",
+							draggable:true
+						}]
+						
+						});	
+					});					
+				});
+			});
+			navigator.geolocation.getCurrentPosition();	
 
 		</script>
 

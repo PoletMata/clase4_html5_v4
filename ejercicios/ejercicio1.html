@@ -36,6 +36,18 @@
 		<script type="text/javascript">
 		
 		   //su codigo aqui
+		   $(function(){
+		   	$(".preview").click (function(evento){
+		   		var imagen = $(evento.target);
+		   		
+		   		$("#imagen-normal").fadeOut("slow", function(){
+		   			var nuevaSrc = imagen.attr("data-src-imagen");		   		
+		   			$("#imagen-normal").attr("src", nuevaSrc)
+		   			$("#imagen-normal").fadeIn("slow", function(){		   			
+		   		});
+		   		});
+		   	})
+		   });
 		</script>
 	</head>
 	<body>
